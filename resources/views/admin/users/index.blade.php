@@ -19,8 +19,8 @@
                     <th class="nosort"><h3>ID</h3></th>
                     <th><h3>Name</h3></th>
                     <th><h3>Email</h3></th>
-                    <th><h3>Created at</h3></th>
-                    <th><h3>Updated at</h3></th>
+                    {{--<th><h3>Created at</h3></th>--}}
+                    {{--<th><h3>Updated at</h3></th>--}}
                 </tr>
                 </thead>
                 <tbody>
@@ -31,8 +31,8 @@
 
                             <td>{{$user->name}}</td>
                             <td><a href="#" class="button-email" title="{{$user->email}}">{{$user->email}}</a></td>
-                            <td>{{$user->created_at->diffForHumans()}}</td>
-                            <td>{{$user->updated_at->diffForHumans()}}</td>
+                            {{--<td>{{$user->created_at->diffForHumans()}}</td>--}}
+                            {{--<td>{{$user->updated_at->diffForHumans()}}</td>--}}
                         </tr>
                     @endforeach
                 @endif
@@ -71,4 +71,27 @@
         </div>
     </div>
     @include('partials.contact')
+    <div id="modal">
+        <div id="heading" class="heading-color">
+            For more info send me an email
+        </div>
+
+        <div id="content">
+            <div class="txt-subject">
+                <p style="margin-left:10px;">Subject: </p></div>
+            <div class="content-subject">
+                <input type="text"/></div>
+            <div class="txt-email">
+                <p style="margin-left:10px;">Email: </p></div>
+            <div class="content-email">
+                <p id="email" style=" color:#464747; font:12px;"></p></div>
+            <div class="txt-message"><p>Message: </p></div>
+            <div class="content-message">
+                <textarea style="width:100%;background-color:#f7fbfe; margin-left:10px; height:100px;"></textarea></div>
+            <div class="contact-img"><img src="images/email.png" class="img-contact" alt=""/></div>
+
+            <div style="margin: 0 0 0 10px;"><a href="#" class="button blue position">Send</a></div>
+        </div>
+    </div>
 @endsection
+

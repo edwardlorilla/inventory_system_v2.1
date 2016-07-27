@@ -1,5 +1,5 @@
 @extends('master.layout')
-@section('title', 'equipments')
+@section('title', 'borrows')
 @section('content')
     <div id="tablewrapper" >
         <div id="tableheader">
@@ -19,51 +19,23 @@
                     <th class="nosort"><h3>ID</h3></th>
                     <th><h3>Name</h3></th>
                     <th><h3>Email</h3></th>
-                    <th><h3>Action</h3></th>
                     {{--<th><h3>Created at</h3></th>--}}
                     {{--<th><h3>Updated at</h3></th>--}}
                 </tr>
                 </thead>
                 <tbody>
-                @if($equipments)
-                    @foreach($equipments as $equipment)
+                @if($borrows)
+                    @foreach($borrows as $borrow)
                         <tr>
-                            <td>{{$equipment->id}}</td>
+                            <td>{{$borrow->id}}</td>
 
-                            <td>{{$equipment->name}}</td>
-                            <td><a href="#" class="button-email" title="{{$equipment->description}}">{{$equipment->description}}</a></td>
-                            <td><a data-toggle="modal" href='#barrow-{{$equipment->id}}'>Borrow</a></td>
-
-                            {{--<td>{{$equipment->created_at->diffForHumans()}}</td>--}}
-                            {{--<td>{{$equipment->updated_at->diffForHumans()}}</td>--}}
+                            <td>{{$borrow->name}}</td>
+                            <td><a href="#" class="button-email" title="{{$borrow->description}}">{{$borrow->description}}</a></td>
+                            {{--<td>{{$borrow->created_at->diffForHumans()}}</td>--}}
+                            {{--<td>{{$borrow->updated_at->diffForHumans()}}</td>--}}
                         </tr>
-                        <div class="modal fade" id="barrow-{{$equipment->id}}">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">Modal title</h4>
-
-                                    </div>
-                                    <div class="modal-body">
-                                        {!! Form::open(['method'=>'POST', 'action'=>['AdminBorrowsController@getBorrow', $equipment->id ]]) !!}
-                                        <div class="form-group has-feedback">
-                                            {!! Form::label('name', 'Name') !!}
-                                            {!! Form::text('name', null, ['class'=>'form-control'])!!}
-                                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        {!! Form::submit('Borrow Item', ['class'=>'btn btn-primary']) !!}
-                                        {!! Form::close() !!}
-                                    </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
                     @endforeach
                 @endif
-
                 </tbody>
             </table>
         </section>

@@ -13,47 +13,61 @@
     {!! Html::style('css/styleResp.css') !!}
     {!! Html::style('css/stylesContact.css') !!}
 
-    {!! Html::style('bootstrap/css/bootstrap.min.css') !!}
+    {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('dist/css/AdminLTE.min.css') !!}
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {!! Html::script('js/bootstrap.min.js') !!}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
+<!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
+<!-- Theme style -->
 {!! Html::style('dist/css/skins/skin-blue.min.css') !!}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+        BODY TAG OPTIONS:
+                =================
+                        Apply one or more of the following classes to get the
+                                desired effect
+                                        |---------------------------------------------------------|
+                                                | SKINS         | skin-blue                               |
+                                                        |               | skin-black                              |
+                                                                |               | skin-purple                             |
+                                                                        |               | skin-yellow                             |
+                                                                                |               | skin-red                                |
+                                                                                        |               | skin-green                              |
+                                                                                                |---------------------------------------------------------|
+                                                                                                        |LAYOUT OPTIONS | fixed                                   |
+                                                                                                                |               | layout-boxed                            |
+                                                                                                                        |               | layout-top-nav                          |
+                                                                                                                                |               | sidebar-collapse                        |
+                                                                                                                                        |               | sidebar-mini                            |
+                                                                                                                                                |---------------------------------------------------------|
+                                                                                                                                                        -->
 <body class="hold-transition skin-blue sidebar-mini">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Inventory System</a>
+        </div>
+        <ul class="nav navbar-nav">
 
-        <section class="content">
+
+            <li class="{{ Request::is('admin/users') ? 'active' : '' }}"><a href="{{route('admin.users..index')}}">Users</a></li>
+            <li class="{{ Request::is('admin/equipments') ? 'active' : '' }}"><a href="{{route('admin.equipments..index')}}">Equipments</a></li>
+            <li class="{{ Request::is('admin/borrows') ? 'active' : '' }}"><a href="{{route('admin.borrows.index')}}">Borrows</a></li>
+        </ul>
+    </div>
+</nav>
+<section class="content">
 
             @yield('content')
             <div id="modal">
@@ -81,10 +95,8 @@ desired effect
 
         </section><!-- /.content -->
 
-
 <!-- REQUIRED JS SCRIPTS -->
 {!! Html::script('plugins/jQuery/jQuery-2.1.4.min.js') !!}
-{!! Html::script('js/bootstrap/js/bootstrap.min.js.js') !!}
 {!! Html::script('dist/js/app.min.js') !!}
 {!! Html::script('js/script.js') !!}
 <script type="text/javascript">
@@ -114,6 +126,7 @@ desired effect
     });
 </script>
 <!--Script Open Pannel--->
+@yield('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 {!! Html::script('js/jquery.reveal.js') !!}
 <script type="text/javascript">

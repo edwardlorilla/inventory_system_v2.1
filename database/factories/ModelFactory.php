@@ -26,3 +26,10 @@ $factory->define(App\Equipment::class, function (Faker\Generator $faker) {
         'description' => $faker->safeEmail,
     ];
 });
+
+$factory->define(App\Borrow::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'description' => $faker->safeEmail,
+    ];
+});

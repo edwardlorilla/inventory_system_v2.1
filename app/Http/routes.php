@@ -11,6 +11,6 @@
 |
 */
 
-Route::resource('admin/users/index','AdminUsersController');
-
+Route::resource('admin/users/','AdminUsersController');
+Route::resource('admin/equipments/', 'AdminEquipmentsController');
 

@@ -14,4 +14,4 @@
 Route::resource('admin/users/','AdminUsersController');
 Route::resource('admin/equipments/', 'AdminEquipmentsController');
 Route::resource('admin/borrows','AdminBorrowsController');
-Route::resource('admin/borrower/{id}','AdminBorrowsController@getBorrow');
+Route::post('admin/borrows/{id}','AdminBorrowsController@postBorrow')->name('admin.borrows.postBorrow');

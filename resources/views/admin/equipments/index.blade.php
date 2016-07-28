@@ -32,12 +32,12 @@
 
                             <td>{{$equipment->name}}</td>
                             <td><a href="#" class="button-email" title="{{$equipment->description}}">{{$equipment->description}}</a></td>
-                            <td><a data-toggle="modal" href='#barrow-{{$equipment->id}}'>Borrow</a></td>
+                            <td><a data-toggle="modal" href='#borrow-{{$equipment->id}}'>Borrow</a></td>
 
                             {{--<td>{{$equipment->created_at->diffForHumans()}}</td>--}}
                             {{--<td>{{$equipment->updated_at->diffForHumans()}}</td>--}}
                         </tr>
-                        <div class="modal fade" id="barrow-{{$equipment->id}}">
+                        <div class="modal fade" id="borrow-{{$equipment->id}}">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -46,7 +46,7 @@
 
                                     </div>
                                     <div class="modal-body">
-                                        {!! Form::open(['method'=>'POST', 'action'=>['AdminBorrowsController@getBorrow', $equipment->id ]]) !!}
+                                        {!! Form::open(['method'=>'POST', 'action'=>['AdminBorrowsController@postBorrow', $equipment->id ]]) !!}
                                         <div class="form-group has-feedback">
                                             {!! Form::label('name', 'Name') !!}
                                             {!! Form::text('name', null, ['class'=>'form-control'])!!}

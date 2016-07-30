@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Theme style -->
 {!! Html::style('dist/css/skins/skin-blue.min.css') !!}
+    @yield('style')
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -93,57 +94,12 @@
                 </div>
             </div>
 
-        </section><!-- /.content -->
-
-<!-- REQUIRED JS SCRIPTS -->
-{!! Html::script('plugins/jQuery/jQuery-2.1.4.min.js') !!}
-{!! Html::script('dist/js/app.min.js') !!}
-{!! Html::script('js/script.js') !!}
-<script type="text/javascript">
-    var sorter = new TINY.table.sorter('sorter','table',{
-        headclass:'head',
-        ascclass:'asc',
-        descclass:'desc',
-        evenclass:'evenrow',
-        oddclass:'oddrow',
-        evenselclass:'evenselected',
-        oddselclass:'oddselected',
-        paginate:true,
-        size:10,
-        colddid:'columns',
-        currentid:'currentpage',
-        totalid:'totalpages',
-        startingrecid:'startrecord',
-        endingrecid:'endrecord',
-        totalrecid:'totalrecords',
-        hoverid:'selectedrow',
-        pageddid:'pagedropdown',
-        navid:'tablenav',
-        sortcolumn:1,
-        sortdir:1,
-        columns:[{index:7, format:'%', decimals:1},{index:8, format:'$', decimals:0}],
-        init:true
-    });
-</script>
-<!--Script Open Pannel--->
+</section><!-- /.content -->
 @yield('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-{!! Html::script('js/jquery.reveal.js') !!}
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.button-email').click(function (e) { // Button which will activate our modal
-            var title = $(this).attr('title');
-            var title2 = $('.name').attr('title');
-            document.getElementById("email").innerHTML = title.toString();
-            $('#modal').reveal({ // The item which will be opened with reveal
-                animation: 'fade',                   // fade, fadeAndPop, none
-                animationspeed: 600,                       // how fast animtions are
-                closeonbackgroundclick: true,              // if you click background will modal close?
-                dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
-            });
-            return false;
-        });
-    });
-</script>
+
+
+
+
+
 </body>
 </html>

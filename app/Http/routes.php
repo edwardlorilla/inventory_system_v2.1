@@ -15,3 +15,6 @@ Route::resource('admin/users/','AdminUsersController');
 Route::resource('admin/equipments/', 'AdminEquipmentsController');
 Route::resource('admin/borrows','AdminBorrowsController');
 Route::post('admin/borrows/{id}','AdminBorrowsController@postBorrow')->name('admin.borrows.postBorrow');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

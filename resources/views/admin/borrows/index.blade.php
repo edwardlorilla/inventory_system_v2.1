@@ -1,5 +1,5 @@
 @extends('master.layout')
-@section('title', 'borrows')
+@section('title', ucfirst('borrows'))
 @section('content')
     <div id="tablewrapper" >
         <div id="tableheader">
@@ -17,7 +17,8 @@
                 <thead>
                 <tr>
                     <th class="nosort"><h3>ID</h3></th>
-                    <th><h3>Name</h3></th>
+                    <th><h3>Approved by</h3></th>
+                    <th><h3>Items</h3></th>
                     <th><h3>Email</h3></th>
                     {{--<th><h3>Created at</h3></th>--}}
                     {{--<th><h3>Updated at</h3></th>--}}
@@ -29,6 +30,7 @@
                         <tr>
                             <td>{{$borrow->id}}</td>
 
+                            <td>{{$borrow->user->name}}</td>
                             <td>{{$borrow->name}}</td>
                             <td><a href="#" class="button-email" title="{{$borrow->description}}">{{$borrow->description}}</a></td>
                             {{--<td>{{$borrow->created_at->diffForHumans()}}</td>--}}
@@ -39,36 +41,7 @@
                 </tbody>
             </table>
         </section>
-        <div id="tablefooter">
-            <div id="tablenav">
-                <div>
-                    <img src="images/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-                    <img src="images/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-                    <img src="images/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-                    <img src="images/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
-                </div>
-                <div>
-                    <select  id="pagedropdown"></select>
-                </div>
-                <div class="btn-reset"><a class="button blue" href="javascript:sorter.showall()">view all</a>
-                </div>
-            </div>
-            <div id="tablelocation">
-                <div>
-                    <select onchange="sorter.size(this.value)">
-                        <option value="5">5</option>
-                        <option value="10" selected="selected">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                    <span class="txt-page">Entries Per Page</span>
-                </div>
 
-
-                <div class="page txt-txt">Page <span id="currentpage"></span> of <span id="totalpages"></span></div>
-            </div>
-        </div>
     </div>
     @include('partials.contact')
 

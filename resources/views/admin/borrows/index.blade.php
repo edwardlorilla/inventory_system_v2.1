@@ -13,6 +13,9 @@
         	</span>
         </div>
         <section>
+
+
+
             <table cellpadding="0" cellspacing="0" border="0" id="table" class="tinytable">
                 <thead>
                 <tr>
@@ -20,7 +23,7 @@
                     <th><h3>Approved by</h3></th>
                     <th><h3>Items</h3></th>
                     <th><h3>Email</h3></th>
-                    {{--<th><h3>Created at</h3></th>--}}
+                    <th><h3>Equipment borrowed</h3></th>
                     {{--<th><h3>Updated at</h3></th>--}}
                 </tr>
                 </thead>
@@ -33,7 +36,12 @@
                             <td>{{$borrow->user->name}}</td>
                             <td>{{$borrow->name}}</td>
                             <td><a href="#" class="button-email" title="{{$borrow->description}}">{{$borrow->description}}</a></td>
-                            {{--<td>{{$borrow->created_at->diffForHumans()}}</td>--}}
+                            <td>
+                                @foreach($borrow->equipments as $equipment)
+                                    <span class="label label-default">{{$equipment->name}}</span>
+                                @endforeach
+                            </td>
+
                             {{--<td>{{$borrow->updated_at->diffForHumans()}}</td>--}}
                         </tr>
                     @endforeach

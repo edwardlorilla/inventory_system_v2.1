@@ -23,6 +23,7 @@
 <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Theme style -->
+
 {!! Html::style('dist/css/skins/skin-blue.min.css') !!}
     @yield('style')
 
@@ -69,7 +70,18 @@
     </div>
 </nav>
 <section class="content">
-
+            @if(session()->has('error'))
+                <div class="alert alert-danger">
+                    <button class="close" data-dismiss="alert" type="button" aria-hidden="true">&times;</button>
+                    <strong>{{session('Error')}}</strong>
+                </div>
+            @endif
+            @if(session()->has('success'))
+                <div class="alert alert-success">
+                    <button class="close" data-dismiss="alert" type="button" aria-hidden="true">&times;</button>
+                    <strong>{{session('success')}}</strong>
+                </div>
+            @endif
             @yield('content')
             <div id="modal">
                 <div id="heading" class="heading-color">
@@ -96,6 +108,22 @@
 
 </section><!-- /.content -->
 @yield('script')
+
+{{--multiple delete checkbox logic--}}
+<script>
+    $(document).on('change', '#checkAll', function (event) {
+        if (this.checked){
+            $('input[type="checkbox"]').each(function () {
+                this.checked = true;
+            })
+        }else {
+            $('input[type="checkbox"]').each(function () {
+                this.checked = false;
+            })
+        }
+    })
+</script>
+{{--end multiple delete checkbox logic--}}
 
 
 
